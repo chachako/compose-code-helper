@@ -23,4 +23,8 @@
     </action>
   </actions>
 
+  <!--suppress PluginXmlValidity -->
+  <applicationListeners>
+    <listener class="cn.net.compose.listener.CodeHelperProjectListener" topic="com.intellij.openapi.project.ProjectManagerListener"/>
+  </applicationListeners>
 </idea-plugin>

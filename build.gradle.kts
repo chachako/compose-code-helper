@@ -13,6 +13,10 @@ repositories {
   google()
 }
 
+dependencies {
+  implementation(compose.desktop.currentOs)
+}
+
 intellij {
   pluginName.set(rootProject.name)
   updateSinceUntilBuild.set(false)
@@ -21,6 +25,8 @@ intellij {
   findPropertyOrEnv("intellij.path")?.toString()?.let(localPath::set) ?: version.set("2020.3")
 }
 
-dependencies {
-  implementation(compose.desktop.currentOs)
+tasks {
+  patchPluginXml {
+    sinceBuild.set("203")
+  }
 }

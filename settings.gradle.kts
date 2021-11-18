@@ -17,7 +17,6 @@ buildscript {
   configurations.all {
     resolutionStrategy.force("org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.31")
   }
-
 }
 
 gradleToolkit {
