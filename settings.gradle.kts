@@ -13,6 +13,13 @@ plugins {
   id("com.meowool.gradle.toolkit") version "0.1.0-SNAPSHOT"
 }
 
+buildscript {
+  configurations.all {
+    resolutionStrategy.force("org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.31")
+  }
+
+}
+
 gradleToolkit {
   publications {
     data {
