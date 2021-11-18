@@ -28,6 +28,8 @@ import javax.swing.Box
 import javax.swing.border.Border
 import javax.swing.border.EmptyBorder
 
+// 创建一个 dialog，去除自带的按钮，顶部栏，以及自带的 padding
+
 class CodeHelperDialog(project: Project?) : DialogWrapper(
     project, null, true, IdeModalityType.MODELESS, false
 ) {
@@ -36,7 +38,7 @@ class CodeHelperDialog(project: Project?) : DialogWrapper(
     private val windowHeight = 768
 
     init {
-        window.addWindowFocusListener(
+        window.addWindowFocusListener( // 创建焦点的监听，当点击窗口外的地方，关闭 dialog
             object : WindowFocusListener {
                 override fun windowLostFocus(e: WindowEvent?) {
                     close(CLOSE_EXIT_CODE)
@@ -53,11 +55,11 @@ class CodeHelperDialog(project: Project?) : DialogWrapper(
     }
 
     override fun createContentPaneBorder(): Border {
-        return EmptyBorder(0, 0, 0, 0)
+        return EmptyBorder(0, 0, 0, 0) // 去除 padding
     }
 
     override fun createActions(): Array<Action> {
-        return arrayOf()
+        return arrayOf() // 去除按钮
     }
 
     @OptIn(ExperimentalComposeUiApi::class, androidx.compose.foundation.ExperimentalFoundationApi::class)

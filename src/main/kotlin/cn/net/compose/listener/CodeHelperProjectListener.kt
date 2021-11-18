@@ -4,6 +4,8 @@ import cn.net.compose.utils.CodeHelper
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.project.ProjectManagerListener
 
+// ide 打开/关闭项目的监听
+
 class CodeHelperProjectListener: ProjectManagerListener {
     override fun projectOpened(project: Project) {
 
