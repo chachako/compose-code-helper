@@ -61,9 +61,9 @@ fun resolveLicenseOfREADME(): String {
   rootDir.resolve("README.md").useLines { lines ->
     lines.forEach {
       when {
-        readStart -> if (it != "```") builder.append(" * ").appendLine(it)
         it == "<!--license start-->" -> readStart = true
         it == "<!--license end-->" -> return builder.append(" */").toString()
+        readStart && it != "```" -> builder.append(" * ").appendLine(it)
       }
     }
   }

@@ -35,7 +35,7 @@ tasks {
     sinceBuild.set("203")
     // Don't restrict the new version of Intellij-IEDA
     untilBuild.set(provider { null })
-    // Extract Chinese and English description from README.*.md
+    // Extract Chinese and English description from README.*md
     pluginDescription.set(provider {
       val chinese = resolveDescriptionOfMarkdown("README.md")
       val english = resolveDescriptionOfMarkdown("README.en.md")
@@ -54,9 +54,9 @@ fun resolveDescriptionOfMarkdown(name: String): String {
   rootDir.resolve(name).useLines { lines ->
     lines.forEach {
       when {
-        readStart -> builder.appendLine(it)
         it == "<!--description start-->" -> readStart = true
         it == "<!--description end-->" -> return builder.toString()
+        readStart -> builder.appendLine(it)
       }
     }
   }
