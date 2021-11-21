@@ -8,11 +8,6 @@
 
   <extensions defaultExtensionNs="com.intellij" />
 
-  <!--suppress PluginXmlValidity -->
-  <applicationListeners>
-    <listener class="cn.net.compose.listener.CodeHelperProjectListener" topic="com.intellij.openapi.project.ProjectManagerListener"/>
-  </applicationListeners>
-
   <actions>
 <!--    <action id="cn.net.compose.CodeHelperAction" class="cn.net.compose.CodeHelperAction"-->
 <!--            text="Show Compose-CodeHelper">-->
