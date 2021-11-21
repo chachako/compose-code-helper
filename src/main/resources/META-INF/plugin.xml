@@ -2,25 +2,21 @@
   <id>cn.net.compose.compose-code-helper</id>
   <vendor email="nthily@outlook.com" url="">Compose Museum</vendor>
 
-  <description>An IDE plug-in for quick access to Jetpack Compose controls 一个可以快速查阅 Jetpack Compose 控件的 IDE 插件</description>
-
-  <change-notes>
-  </change-notes>
-
   <!-- please see https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html
        on how to target different products -->
   <depends>com.intellij.modules.platform</depends>
 
-  <extensions defaultExtensionNs="com.intellij">
-    <!-- Add your extensions here -->
-  </extensions>
+  <extensions defaultExtensionNs="com.intellij" />
 
   <actions>
-    <!-- Add your actions here -->
-    <action id="cn.net.compose.CodeHelperAction" class="cn.net.compose.CodeHelperAction"
-            text="Show Compose-CodeHelper...">
+<!--    <action id="cn.net.compose.CodeHelperAction" class="cn.net.compose.CodeHelperAction"-->
+<!--            text="Show Compose-CodeHelper">-->
+<!--      <add-to-group group-id="ToolsMenu" anchor="last"/>-->
+<!--      <keyboard-shortcut first-keystroke="control alt V" keymap="$default" />-->
+<!--    </action>-->
+    <action id="cn.net.compose.ide.CodeHelperToolMenuAction" class="cn.net.compose.ide.CodeHelperToolMenuAction"
+            text="Compose Code Helper" description="Open compose-code-helper separately">
       <add-to-group group-id="ToolsMenu" anchor="last"/>
     </action>
   </actions>
-
 </idea-plugin>
