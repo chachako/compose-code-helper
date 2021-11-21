@@ -14,10 +14,14 @@
   </applicationListeners>
 
   <actions>
-    <action id="cn.net.compose.CodeHelperAction" class="cn.net.compose.CodeHelperAction"
-            text="Show Compose-CodeHelper">
+<!--    <action id="cn.net.compose.CodeHelperAction" class="cn.net.compose.CodeHelperAction"-->
+<!--            text="Show Compose-CodeHelper">-->
+<!--      <add-to-group group-id="ToolsMenu" anchor="last"/>-->
+<!--      <keyboard-shortcut first-keystroke="control alt V" keymap="$default" />-->
+<!--    </action>-->
+    <action id="cn.net.compose.ide.CodeHelperToolMenuAction" class="cn.net.compose.ide.CodeHelperToolMenuAction"
+            text="Compose Code Helper" description="Open compose-code-helper separately">
       <add-to-group group-id="ToolsMenu" anchor="last"/>
-      <keyboard-shortcut first-keystroke="control alt V" keymap="$default" />
     </action>
   </actions>
 </idea-plugin>
