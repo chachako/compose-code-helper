@@ -42,9 +42,11 @@ import cn.net.compose.ui.view.Sidebar
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.ui.awt.ComposeWindow
 import androidx.compose.ui.unit.dp
 import cn.net.compose.ui.components.cursorForHorizontalResize
 import cn.net.compose.ui.theme.AppAppearance
+import cn.net.compose.ui.utils.windowDraggable
 import cn.net.compose.ui.view.FocusView
 import cn.net.compose.ui.view.Menubar
 import org.jetbrains.compose.splitpane.HorizontalSplitPane
@@ -63,13 +65,15 @@ import org.jetbrains.compose.splitpane.rememberSplitPaneState
  *
  * @author 凛 (https://github.com/RinOrz)
  */
-fun main() = singleWindowApplication {
+fun main() = singleWindowApplication(
+  undecorated = true
+) {
   val windowTitleBar = getCurrentWindowTitleBar()
   AppTheme {
     Surface(modifier = Modifier.fillMaxSize()) {
       Column {
         AppWindowTitleBar(windowTitleBar.height)
-        AppWindowContent(currentAppearance)
+        AppWindowContent(currentAppearance, window)
       }
     }
   }
@@ -84,7 +88,7 @@ fun main() = singleWindowApplication {
 }
 
 @Composable
-private fun AppWindowContent(currentAppearance: AppAppearance) = HorizontalSplitPane(
+private fun AppWindowContent(currentAppearance: AppAppearance, window: ComposeWindow) = HorizontalSplitPane(
   modifier = Modifier.background(currentAppearance.backgroundColor)
 ) {
     Sidebar(currentAppearance)
@@ -93,7 +97,7 @@ private fun AppWindowContent(currentAppearance: AppAppearance) = HorizontalSplit
         modifier = Modifier.padding(start = 2.dp),
         splitPaneState = rememberSplitPaneState(moveEnabled = false)
       ) {
-        Menubar(currentAppearance)
+        Menubar(currentAppearance, window)
         FocusView()
       }
     }
