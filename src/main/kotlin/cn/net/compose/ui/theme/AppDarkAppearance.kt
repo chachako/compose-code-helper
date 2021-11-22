@@ -27,15 +27,15 @@ import cn.net.compose.model.ColorPair
  * @author 凛 (https://github.com/RinOrz)
  */
 class AppDarkAppearance : AppAppearance() {
-  override val isLight: Boolean = false
+    override val isLight: Boolean = false
 
-  override val logo: String = "logoDark"
+    override val logo: String = "logoDark"
 
-  override val contentColor: Color = Color.White
-  override val surfaceColor: Color = Color(0xFF24272C)
-  override val backgroundColor: Color = Color(0xFF1E2125)
+    override val contentColor: Color = Color.White
+    override val surfaceColor: Color = Color(0xFF24272C)
+    override val backgroundColor: Color = Color(0xFF1E2125)
 
-  override val titleBarColors: ColorPair = backgroundColor to Color(0xFF22252A)
+    override val titleBarColors: ColorPair = backgroundColor to Color(0xFF22252A)
 
-  override val searchBarColor: Color = Color(0xFF33363D)
+    override val searchBarColor: Color = Color(0xFF33363D)
 }
