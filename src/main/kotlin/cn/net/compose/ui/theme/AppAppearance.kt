@@ -22,22 +22,17 @@
 
 package cn.net.compose.ui.theme
 
-import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.material.Colors
 import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.SolidColor
-import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import cn.net.compose.model.ColorPair
 import cn.net.compose.model.DpPair
 import cn.net.compose.model.to
-import com.meowool.sweekt.IntPair
-import com.meowool.sweekt.LazyInit
 
 /**
  * @author 凛 (https://github.com/RinOrz)
