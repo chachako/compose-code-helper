@@ -1,3 +1,5 @@
+![](https://cdn.jsdelivr.net/gh/compose-museum/compose-code-helper/screenshots/demo.png)
+
 **[简体中文]** | [English](README.en.md)
 
 # [WIP] Compose Code Helper
