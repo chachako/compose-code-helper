@@ -35,7 +35,7 @@ class AppDarkAppearance : AppAppearance() {
     override val surfaceColor: Color = Color(0xFF24272C)
     override val backgroundColor: Color = Color(0xFF1E2125)
 
-    override val titleBarColors: ColorPair = backgroundColor to Color(0xFF22252A)
+    override val titleBarColors: ColorPair = surfaceColor to Color(0xFF202327)
 
     override val searchBarColor: Color = Color(0xFF33363D)
 }
