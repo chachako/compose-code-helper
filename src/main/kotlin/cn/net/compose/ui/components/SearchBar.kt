@@ -20,58 +20,57 @@
  */
 package cn.net.compose.ui.components
 
-import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Icon
-import androidx.compose.material.Text
-import androidx.compose.material.TextField
-import androidx.compose.material.TextFieldDefaults
+import androidx.compose.foundation.text.BasicTextField
+import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Search
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.DisposableEffect
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
+import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
+import androidx.compose.ui.focus.onFocusChanged
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 
 @Composable
-fun SearchBar() {
-    val density = LocalDensity.current
-    val focusRequester = FocusRequester()
-    var text by remember { mutableStateOf("") }
+fun SearchBar(
+    placeHolder: String = "Search keywords"
+) {
 
-    TextField(
+    var text by remember { mutableStateOf("") }
+    var isFocused by remember { mutableStateOf(false) }
+
+    BasicTextField(
         value = text,
         onValueChange = {
             text = it
         },
-        colors = TextFieldDefaults.textFieldColors(
-            focusedIndicatorColor = Color.Transparent,
-            unfocusedIndicatorColor = Color.Transparent,
-            backgroundColor = Color(0xFF33363D)
-        ),
-        modifier = Modifier
-            .fillMaxWidth()
-            .focusRequester(focusRequester),
-        maxLines = 1,
-        leadingIcon = {
-            Icon(Icons.Filled.Search, null)
+        decorationBox = {
+            CenterRow(
+                modifier = Modifier.height(48.dp).width(250.dp).background(Color(0xFF33363D), shape = RoundedCornerShape(8.dp)),
+            ) {
+                Icon(Icons.Filled.Search, null, modifier = Modifier.padding(8.dp))
+                if(!isFocused && text == "") {
+                    CompositionLocalProvider(LocalContentAlpha provides ContentAlpha.medium) {
+                        Text(
+                            text = placeHolder,
+                            fontSize = 14.sp
+                        )
+                    }
+                }
+                it()
+            }
         },
-        shape = RoundedCornerShape(9.dp),
-        placeholder = {
-            Text("Search keywords")
+        cursorBrush = SolidColor(Color.Gray),
+        modifier = Modifier.onFocusChanged {
+            isFocused = it.isFocused
         }
     )
-
-    DisposableEffect(Unit) {
-        focusRequester.requestFocus()
-        onDispose { }
-    }
 }
