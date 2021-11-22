@@ -58,12 +58,10 @@ fun SearchBar(
             ) {
                 Icon(Icons.Filled.Search, null, modifier = Modifier.padding(8.dp))
                 if(!isFocused && text == "") {
-                    CompositionLocalProvider(LocalContentAlpha provides ContentAlpha.medium) {
-                        Text(
-                            text = placeHolder,
-                            fontSize = 14.sp
-                        )
-                    }
+                    SecondaryText(
+                        text = placeHolder,
+                        fontSize = 14.sp
+                    )
                 }
                 it()
             }
