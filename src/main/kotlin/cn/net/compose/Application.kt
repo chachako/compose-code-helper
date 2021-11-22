@@ -132,13 +132,7 @@ private fun WindowScope.AppWindowTitleBar(height: Dp) {
             Modifier
                 .fillMaxWidth()
                 .height(height)
-                .background(
-                    Brush.verticalGradient(
-                        0.0f to gradient.first,
-                        0.5f to gradient.first,
-                        1.0f to gradient.second,
-                    )
-                )
+                .background(Brush.verticalGradient(gradient.toList()))
         )
     }
 }
