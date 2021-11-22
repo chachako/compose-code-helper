@@ -53,6 +53,7 @@ sealed interface WindowTitleBar {
      */
     class MacOS : Default() {
         override val height: Dp = 28.dp
+        override val isDecorated: Boolean = true
 
         override fun transparentBackground(window: ComposeWindow) = window.rootPane.run {
             putClientProperty(WindowFullContent, true)
