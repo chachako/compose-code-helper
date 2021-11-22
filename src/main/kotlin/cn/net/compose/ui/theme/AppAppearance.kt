@@ -60,7 +60,7 @@ abstract class AppAppearance {
 
     val sidebarMinMaxWidths: DpPair = 82.dp to 214.dp
 
-    val menuBarHeight: Dp = 88.dp
+    val menuBarHeight: Dp = 86.dp
 
     val iconTranslate: String = "translate"
 
